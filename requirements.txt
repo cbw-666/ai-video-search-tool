@@ -1,0 +1,10 @@
+streamlit
+numpy
+torch
+torchvision
+open-clip-torch
+translators
+opencv-python
+Pillow
+insightface
+onnxruntime-gpu
