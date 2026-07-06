@@ -7,5 +7,5 @@ echo ==========================================
 set HF_HOME=%~dp0models_cache
 set INSIGHTFACE_HOME=%~dp0.insightface
 
-python -m streamlit run star_search.py --server.headless false
+"%~dp0venv\Scripts\python.exe" -m streamlit run star_search.py --server.headless false
 pause
