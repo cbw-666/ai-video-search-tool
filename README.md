@@ -38,7 +38,7 @@
    set HF_ENDPOINT=https://hf-mirror.com
 
    第三步，启动断点续传下载（文件较大，请耐心等待进度条走完）：
-   venv\Scripts\hf.exe download apple/DFN5B-CLIP-ViT-L-14
+   venv\Scripts\hf.exe download apple/DFN5B-CLIP-ViT-H-14
 
 **安装避坑提示：**
 - **必须彻底关闭所有代理/科学上网软件（如 Clash、v2ray 等）！** 否则执行第 6 步下载模型时会被代理劫持流量，导致报错。
