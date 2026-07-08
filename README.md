@@ -47,7 +47,7 @@
    set HF_ENDPOINT=https://hf-mirror.com
 
    第三步，启动断点续传下载（文件较大，请耐心等待进度条走完）：
-   venv\Scripts\huggingface-cli.exe download apple/DFN5B-CLIP-ViT-H-14
+   venv\Scripts\hf.exe download apple/DFN5B-CLIP-ViT-H-14
 
 **安装避坑提示：**
 - 在执行第 4、5、6 步时，系统需要下载数 GB 的文件并写入硬盘，终端可能会长时间停留在 `Installing...` 或进度条阶段。
