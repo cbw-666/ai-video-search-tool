@@ -28,16 +28,13 @@
 
 0. 前置要求：确保您的电脑已安装 Python 3.9 - 3.11 版本，并已在系统环境变量中配置了 python 命令。
 1. 克隆代码或直接下载 ZIP 压缩包并解压进入项目文件夹。
-2. 为了避免依赖包占用 C 盘空间，强烈建议在项目根目录创建并激活虚拟环境。请在项目终端依次执行以下命令：
+2. 为了避免依赖包占用 C 盘空间，强烈建议使用虚拟环境。请在项目根目录打开终端，依次执行以下命令：
    
    创建虚拟环境 (会在当前目录生成一个 venv 文件夹):
    python -m venv venv
    
-   激活虚拟环境 (Windows 系统):
-   venv\Scripts\activate
-   
-3. 确认终端命令提示符的最前方出现 (venv) 字样后，安装项目依赖包：
-   pip install -r requirements.txt
+   使用国内镜像源安装依赖包:
+   venv\Scripts\python.exe -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 ## 运行方法
 
