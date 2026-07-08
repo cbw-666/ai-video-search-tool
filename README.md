@@ -24,7 +24,7 @@
 - 内存要求：系统内存（RAM）建议 16GB 或以上。
 - 关于纯 CPU 运行：虽然代码内置了 CPU 兼容逻辑，但纯 CPU 模式下视频抽帧与场景索引速度极慢，极不建议在无显卡的设备上跑这个工具。
 
-## 安装步骤（请严格按顺序执行）
+## 安装步骤
 
 0. 前置要求：确保您的电脑已安装 Python 3.9 - 3.11 版本，并已在系统环境变量中配置了 python 命令。
 1. 克隆代码或直接下载 ZIP 压缩包并解压进入项目文件夹。
@@ -32,16 +32,30 @@
 3. 执行以下命令创建虚拟环境（会在当前目录生成 venv 文件夹）：
    python -m venv venv
 
-4. 执行以下命令，使用国内清华镜像源强制安装依赖（无需手动激活，直接指定解释器路径）：
+4. 强制安装 GPU 版本的深度学习底层框架（文件约 2.6GB，请耐心等待完成）：
+   venv\Scripts\python.exe -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+
+5. 使用国内镜像源安装其余项目依赖包：
    venv\Scripts\python.exe -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
+6. 提前下载大规模 AI 视觉模型（请依次复制以下三条命令，每粘贴一条按一次回车）：
+
+   第一步，设置模型缓存路径至当前文件夹：
+   set HF_HOME=%cd%\models_cache
+
+   第二步，设置国内加速镜像源：
+   set HF_ENDPOINT=https://hf-mirror.com
+
+   第三步，启动断点续传下载（文件较大，请耐心等待进度条走完）：
+   venv\Scripts\huggingface-cli.exe download apple/DFN5B-CLIP-ViT-H-14
+
 **安装避坑提示：**
-- 由于本项目依赖 `torch` 和 `onnxruntime-gpu` 等超大体积库，执行第 4 步后，终端可能会长时间停留在 `Installing collected packages...` 阶段，这是系统正在解压并写入硬盘。
-- 必须耐心等待，直到屏幕重新出现输入光标，才代表安装彻底完成。
+- 在执行第 4、5、6 步时，系统需要下载数 GB 的文件并写入硬盘，终端可能会长时间停留在 `Installing...` 或进度条阶段。
+- 必须耐心等待，直到屏幕最后一行重新出现带路径的输入光标，才代表该步骤彻底完成，方可进行下一步。
 
 ## 运行方法
 
-确保依赖完全安装成功后，在项目文件夹中：
+确保依赖与模型完全安装成功后，在项目文件夹中：
 
 运行语义场景搜索：
 双击执行 启动场景搜索.bat
